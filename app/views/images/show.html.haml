@@ -1,0 +1,22 @@
+#content.shadow
+  %h3.yellow.bold Image Show
+
+  %table
+    %tr
+      %td Name
+      %td= @image.filename
+
+    %tr
+      %td Updated On
+      %td= @image.updated_at.getlocal.strftime('%Y.%m.%d')
+
+    %tr
+      %td Link Code
+      %td= @image.file.url.split('?')[0]
+
+  %br
+  %br
+  %h5.yellow Image
+  = image_tag(@image.file.url)
+
+

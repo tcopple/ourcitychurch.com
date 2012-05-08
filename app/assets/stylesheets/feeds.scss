@@ -1,0 +1,60 @@
+#feeds {
+  width: 100%;
+  display: block;
+  margin: 25px 0px;
+
+  .feed {
+    float: left;
+    height: 250px;
+    width: 32%;
+    display: inline;
+    margin: 0px 1%;
+    background: #000;
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid #333;
+    border-right: 1px solid #333;
+
+    .blogs, .tweets, .calendar {
+      padding: 10px 10px;
+    }
+
+    .blog {
+      padding: 10px 0px;
+
+      a {
+        color: #fff;
+      }
+
+      .title {
+      }
+    }
+
+    .tweets {
+      .tweet {
+        padding: 6px 0px;
+
+        p {
+          font-size: 1.5em;
+          text-align: center;
+        }
+      }
+    }
+
+    .calendar {
+      .event {
+        padding: 6px 0px;
+
+        a {
+          color: #fff;
+        }
+      }
+    }
+  }
+  .feed.first { margin-left: 0px; }
+  .feed.last { margin-right: 0px; }
+
+  .date {
+    font-size: .8em;
+    padding-bottom: 3px;
+  }
+}

@@ -11,6 +11,22 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
+log/
+public/images/
+public/banners/
+public/resources/
+config/mongoid.yml
+*~
+*.cache
+*.log
+*.pid
+tmp/**/*
+.DS_Store
+doc/*
+coverage/*
+db/*.sqlite3
+*.tmproj
+*.sw?
 
 # YARD artifacts
 .yardoc

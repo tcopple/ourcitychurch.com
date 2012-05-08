@@ -1,0 +1,12 @@
+#content.shadow
+  %h2 Sign in
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    .control-group
+      = f.label :email, :class => 'control-label'
+      .controls
+        = f.email_field :email
+    .control-group
+      = f.label :password, :class => 'control-label'
+      .controls
+        = f.password_field :password
+    = f.submit "Sign in"

@@ -1,0 +1,18 @@
+-content_for :social do
+  .grid_16
+    #feeds
+      .feed.first.shadow
+        .blogs
+          %h4.yellow justin's blog
+          %ul#blogs
+      .feed.shadow
+        .tweets
+          %h4.yellow= link_to 'twitter', 'http://www.twitter.com/fl_citychurch'
+          %ul#tweets
+      .feed.last.shadow
+        .calendar
+          %h4.yellow calendar
+          #events
+  .clear
+
+

@@ -1,0 +1,59 @@
+= form_for @page, :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    = f.label :title, :class => 'control-label'
+    .controls
+      = f.text_field :title
+      %p.help-block
+        This will be the title that is printed at the top of the page.
+
+  .control-group
+    = f.label :permalink, :class => 'control-label'
+    .controls
+      = f.text_field :permalink
+      %p.help-block
+        The value to navigate to the page from. e.g(www.ourcitychurch.org/our-story). This value cannot contain any spaces.
+
+  .control-group
+    = f.label :description, :class => 'control-label'
+    .controls
+      = f.text_field :description
+      %p.help-block
+        For posterity's sake. Currently not used anywhere in site.
+
+  .control-group
+    = f.label :parent, 'Sub Menu', :class => 'control-label'
+    .controls
+      = f.select :parent, Page.parent_menu_items
+      %p.help-block
+        Which sub menu do you want this page to fall under.
+
+  .control-group
+    = f.label :link, 'Send To', :class => 'control-label'
+    .controls
+      = f.text_field :link
+      %p.help-block
+        A direct link in this box (e.g. http://www.google.com/) will
+        ignore all settings and make this menu item navigate directly to another page.
+
+  .control-group
+    = f.label :visible, :class => 'control-label'
+    .controls
+      %span= f.check_box :visible
+      %span
+        Check this box to make this page visible in the menus.
+
+  .control-group
+    = f.label :markup, :class => 'control-label'
+    .controls
+      %span= f.check_box :markup
+      %span
+        Check this box to interpret the content as
+        = link_to 'Markdown', 'http://www.daringfireball.net/projects/markdown'
+        instead of HTML.
+
+  .control-group
+    = f.label :content, :class => 'control-label'
+    .controls
+      = find_and_preserve(f.text_area(:source, :cols => 120))
+
+  = f.submit 'Update'

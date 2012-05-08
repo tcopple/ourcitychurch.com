@@ -1,0 +1,75 @@
+#content.shadow
+  %h4.yellow Manage Banners
+  .section
+    - if @banners.empty?
+      %h5
+        No banners in database, click
+        = link_to 'here', new_banner_path
+        to add one.
+    - else
+      %table
+        %thead
+          %th Name
+          %th Created
+        - @banners.each do |b|
+          %tr
+            %td= b.filename
+            %td= b.created_at.getlocal.strftime('%Y.%m.%d')
+            %td= link_to "Show", b.file.url
+            %td= link_to 'Destroy', b, confirm: 'Are you sure?', method: :delete
+      = link_to 'New Banner', new_banner_path
+
+  %h4.yellow Manage Pages
+  .section
+    %table
+      %thead
+        %th Name
+        %th Permalink
+        %th Visible
+      - @pages.each do |p|
+        %tr
+          %td= p.title
+          %td= p.permalink
+          %td= p.visible
+          %td= link_to "Show", p
+          %td= link_to "Edit", edit_page_path(p)
+    = link_to 'New Page', new_page_path
+
+  %h4.yellow Manage Resources
+  .section
+    - if @resources.empty?
+      %h5
+        No resources in database, click
+        = link_to 'here', new_resource_path
+        to add one.
+    - else
+      %table
+        %thead
+          %th Name
+          %th Update On
+        - @resources.each do |r|
+          %tr
+            %td= r.filename
+            %td= r.updated_at.getlocal.strftime('%Y.%m.%d')
+            %td= link_to 'Destroy', r, confirm: 'Are you sure?', method: :delete
+      = link_to 'New Resource', new_resource_path
+
+  %h4.yellow Manage Images
+  .section
+    - if @images.empty?
+      %h5
+        No images in database, click
+        = link_to 'here', new_image_path
+        to add one.
+    - else
+      %table
+        %thead
+          %th Name
+          %th Update On
+        - @images.each do |r|
+          %tr
+            %td= link_to r.filename, r.file.url
+            %td= r.updated_at.getlocal.strftime('%Y.%m.%d')
+            %td= link_to 'Show', r
+            %td= link_to 'Destroy', r, confirm: 'Are you sure?', method: :delete
+      = link_to 'New Image', new_image_path

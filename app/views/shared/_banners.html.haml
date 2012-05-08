@@ -1,0 +1,7 @@
+%ul#banners.shadow
+  -Banner.all.each do |b|
+    %li
+      -if b.link_to.nil? || b.link_to.empty?
+        = image_tag b.file.url
+      -else
+        = link_to image_tag(b.file.url), b.link_to

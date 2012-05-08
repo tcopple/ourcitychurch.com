@@ -1,0 +1,8 @@
+#content.shadow
+  %h4.yellow Resources
+  - if @resources.empty?
+    %h5 No resources available.
+  - else
+    %ul
+    - @resources.sort{|m,n| m.filename <=> n.filename}.each do |r|
+      %li= link_to r.filename, r.files.url

@@ -1,0 +1,13 @@
+#header
+  .grid_5
+    .logo= link_to image_tag('logo.png', :width => "100%"), '/'
+  .grid_11
+    #navigation
+      %ul.main.shadow
+        - build_menu_hash.sort{|m,n| m[0].order <=> n[0].order}.each do |root, sub|
+          %li
+            = link_to root.title, permalink_path(:permalink => root.permalink)
+            %ul.sub
+              - sub.each do |sub_page|
+                %li= link_to sub_page.title, permalink_path(:permalink => sub_page.permalink)
+.clear

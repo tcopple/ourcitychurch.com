@@ -14,13 +14,6 @@
         The value to navigate to the page from. e.g(www.ourcitychurch.org/our-story). This value cannot contain any spaces.
 
   .control-group
-    = f.label :description, :class => 'control-label'
-    .controls
-      = f.text_field :description
-      %p.help-block
-        For posterity's sake. Currently not used anywhere in site.
-
-  .control-group
     = f.label :parent, 'Sub Menu', :class => 'control-label'
     .controls
       = f.select :parent, Page.parent_menu_items

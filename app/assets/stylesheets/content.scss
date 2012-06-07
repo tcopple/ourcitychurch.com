@@ -7,4 +7,10 @@
   background: rgba(0, 0, 0, 0.6);
   border-bottom: 1px solid #333;
   border-right: 1px solid #333;
+
+  #text {
+    p {
+      line-height: 125%;
+    }
+  }
 }

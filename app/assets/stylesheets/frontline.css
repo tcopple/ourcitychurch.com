@@ -36,23 +36,6 @@
   margin: 0 8px;
 }
 
-/* .blog_post a { */
-/*   color: #fff; */
-/* } */
-
-/* .blog_post { */
-/*   padding: 10px 0px; */
-/* } */
-
-/* .tweet { */
-/*   padding: 6px 0px; */
-/* } */
-
-/* .tweet_text { */
-/*   font-size: 1.5em; */
-/*   text-align: center; */
-/* } */
-
 .event {
   padding: 6px 0px;
 }
@@ -64,11 +47,6 @@
 .author {
   font-size: .7em;
 }
-
-/* .date { */
-/*   font-size: .6em; */
-/*   padding-bottom: 3px; */
-/* } */
 
 #footer {
   position: relative;

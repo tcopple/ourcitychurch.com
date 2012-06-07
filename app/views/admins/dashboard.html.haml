@@ -49,7 +49,7 @@
           %th Update On
         - @resources.each do |r|
           %tr
-            %td= r.filename
+            %td= link_to r.filename, r.file.url
             %td= r.updated_at.getlocal.strftime('%Y.%m.%d')
             %td= link_to 'Destroy', r, confirm: 'Are you sure?', method: :delete
       = link_to 'New Resource', new_resource_path

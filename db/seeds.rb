@@ -10,94 +10,83 @@ CommunityGroupLeader.create(
 )
 
 Page.create(
-  title: 'New Here?',
+  menu_title: 'New Here?',
   parent: nil,
   permalink: 'new-here',
-  description: 'New Here root item.',
   visible: true,
   order: 1
 )
 
 Page.create(
-  title: 'Resources',
+  menu_title: 'Resources',
   parent: nil,
   permalink: 'resources',
-  description: 'Resources root item.',
   visible: true,
   order: 3
 )
 
 Page.create(
-  title: 'When & Where',
+  menu_title: 'When & Where',
   parent: nil,
   permalink: 'when-and-where',
-  description: 'When & Where root item.',
   visible: true,
   order: 2
 )
 
 Page.create(
-  title: 'Give',
+  menu_title: 'Give',
   parent: nil,
   permalink: 'give',
-  description: 'Giving page root item.',
   visible: true,
   order: 4
 )
 
 Page.create(
-  title: 'Contact',
+  menu_title: 'Contact',
   parent: nil,
   permalink: 'contact',
-  description: 'Contact root item',
   visible: true,
   order: 5
 )
 
 Page.create(
-  title: 'Home',
+  menu_title: 'Home',
   permalink: 'home',
-  description: 'Home page.',
   visible: false,
   parent: nil
 )
 
 Page.create(
-  title: 'Welcome',
+  menu_title: 'Welcome',
   permalink: 'welcome',
-  description: 'General church welcome and information.',
   parent: 'New Here?',
   visible: true
 )
 
 Page.create(
-  title: 'Our Story',
+  menu_title: 'Our Story',
   permalink: 'our-story',
-  description: 'Explains the of City Church.',
   parent: 'New Here?',
   visible: true
 )
 
 Page.create(
-  title: 'The Gospel',
+  menu_title: 'The Gospel',
   permalink: 'the-gospel',
-  description: 'Explains the gospel of Jesus Christ.',
   parent: 'New Here?',
   visible: true
 )
 
 Page.create(
-  title: 'Community Groups',
+  menu_title: 'Community Groups',
   permalink: 'community-groups',
-  description: 'A list of community group information.',
   parent: 'When & Where',
   visible: true
 )
 
 Page.create(
-  title: 'Videos',
+  menu_title: 'Videos',
   permalink: 'videos',
-  description: 'Link to Vimeo videos.',
   parent: 'Resources',
   visible: true,
   link: 'http://www.vimeo.com/user6107401/videos'

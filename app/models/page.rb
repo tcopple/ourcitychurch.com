@@ -2,9 +2,11 @@ class Page
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  field :title, type: String
-  validates :title, presence: true,
+  field :menu_title, type: String
+  validates :menu_title, presence: true,
                     length: { allow_blank: false, minimum: 4 }
+
+  field :page_title, type: String
 
   field :permalink, type: String
   validates :permalink, presence: true,
@@ -22,6 +24,10 @@ class Page
 
   key :permalink
 
+  def title
+    page_title.nil? ? menu_title : page_title
+  end
+
   def source
     (self.markup ? self.markup_content : self.html_content) || ""
   end
@@ -38,7 +44,7 @@ class Page
 
   def self.parent_menu_items
     Page.where(:parent => nil, :visible => true, :link => nil)
-        .collect{|p| [p.title, p.title]}
+        .collect{|p| [p.menu_title, p.menu_title]}
         .unshift(["None", nil])
   end
 end

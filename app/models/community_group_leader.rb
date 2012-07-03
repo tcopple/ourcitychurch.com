@@ -1,3 +1,2 @@
 class CommunityGroupLeader < User
-
 end

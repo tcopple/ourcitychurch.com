@@ -5,7 +5,6 @@ gem 'rails', '3.1.3'
 gem 'hpricot'
 gem 'therubyracer'
 gem 'haml'
-gem 'nifty-generators'
 gem 'paperclip'
 gem 'mongoid-paperclip', :require => 'mongoid_paperclip'
 gem 'jquery-rails'
@@ -24,7 +23,16 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+  gem 'nifty-generators'
+
+end
+
 group :test do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
+end
+
+group :production do
+
 end

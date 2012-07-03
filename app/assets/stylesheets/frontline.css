@@ -2,19 +2,6 @@
   height: 80px;
 }
 
-/* #content { */
-/*   padding: 5px 0px; */
-/* } */
-
-/* #content #main { */
-/*   float: right; */
-/*   height: 401px; */
-/*   width: 700px; */
-/*   background: #000; */
-/*   border: 1px solid #666 */
-/*   overflow: hidden; */
-/* } */
-
 #content #videos video {
   position: absolute;
   top: -1px;

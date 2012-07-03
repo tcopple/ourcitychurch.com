@@ -25,7 +25,7 @@ class Page
   key :permalink
 
   def title
-    page_title.nil? ? menu_title : page_title
+    (page_title.nil? ? menu_title : page_title).titleize
   end
 
   def source

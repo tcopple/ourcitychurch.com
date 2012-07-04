@@ -27,12 +27,13 @@
     }
 
     ul.sub {
+      width: 100%;
+      border-top: 1px solid #999;
       display: none;
       position: absolute;
       left: -1px;
       top: 26px;
       list-style:none;
-      border-top: 1px solid #999;
       a {
         display:block;
         &:hover {

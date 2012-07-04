@@ -88,6 +88,10 @@ table {
       padding: 5px;
       border-collapse: collapse;
       border: 1px solid #999;
+
+      &.bump {
+        padding-left: 20px;
+      }
     }
   }
 }

@@ -6,14 +6,12 @@ module ApplicationHelper
   end
 
   def build_menu_hash
-    menu = Hash.new
-
-    Page.where(:parent => nil, :visible => true).each do |p|
-      menu[p] ||= Array.new
-      menu[p].concat(Page.where(parent: p.title))
+    Hash.new.tap do |menu|
+      Page.where(:parent => nil, :visible => true).each do |p|
+        menu[p] ||= Array.new
+        menu[p].concat(Page.where(parent: p.title))
+      end
     end
-
-    menu
   end
 
   def active_user_dashboard

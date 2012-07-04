@@ -1,13 +1,13 @@
 = form_for @page, :html => { :class => 'form-horizontal' } do |f|
   .control-group
-    = f.label :menu_title, :class => 'control-label'
+    = f.label :menu_title, 'Menu Title', :class => 'control-label'
     .controls
       = f.text_field :menu_title
       %p.help-block
         This will be the title printed in the sub-menu.
 
   .control-group
-    = f.label :page_title, :class => 'control-label'
+    = f.label :page_title, 'Page Title', :class => 'control-label'
     .controls
       = f.text_field :page_title
       %p.help-block

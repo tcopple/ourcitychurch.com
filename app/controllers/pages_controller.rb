@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show]
+  # before_filter :authenticate_user!, :except => [:show]
+  respond_to :html, :json
 
   def show
     @page = Page.find(params[:permalink] || params[:id])
@@ -8,35 +9,37 @@ class PagesController < ApplicationController
 
   def edit
     @page = Page.find(params[:permalink] || params[:id])
+    respond_with @page
   end
 
   def update
     @page = Page.find(params[:id])
-    if @page.update_attributes(params[:page])
-      redirect_to @page, :notice  => "Successfully updated static page."
-    else
-      render :action => 'edit'
-    end
+    flash[:notice] = "Successfully updated static page." if @page.update_attributes(params[:page])
+    respond_with @page
   end
 
   def new
     @page = Page.new
-
-    respond_to do |format|
-      format.html
-      format.json { render json @page }
-    end
+    respond_with @page
   end
 
   def create
     @page = Page.new(params[:page])
+    flash[:notice] = 'Page successfully created.' if @page.save
+    respond_with @page
+  end
 
-    respond_to do |format|
-      if @page.save
-        format.html { redirect_to admin_path, :notice => 'Page successfully created.' }
-      else
-        format.html { render :action => "new" }
-      end
-    end
+  def swap_order
+    @left = Page.find(params[:id])
+    @right = Page.find(params[:other])
+
+    m = @left.order
+    n = @right.order
+
+    @left.update_attributes(order: n)
+    @right.update_attributes(order: m)
+
+    # respond_with({up: @left, down: @right})
+    redirect_to admin_dashboard_path
   end
 end

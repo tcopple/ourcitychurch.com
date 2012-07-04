@@ -26,13 +26,25 @@
         %th Name
         %th Permalink
         %th Visible
-      - @pages.each do |p|
+        %th
+        %th
+      - @roots.each do |r|
         %tr
-          %td= p.title
-          %td= p.permalink
-          %td= p.visible
-          %td= link_to "Show", p
-          %td= link_to "Edit", edit_page_path(p)
+          %td= link_to r.title, r
+          %td= r.permalink
+          %td= r.visible
+          %td= link_to "Edit", edit_page_path(r)
+        - @tree[r.title].each do |c|
+          %tr{ class: 'sub-page', id: c.permalink }
+            %td.bump
+              = link_to c.title, c
+              - if(c.title != @tree[r.title].first.title)
+                %i.icon-circle-arrow-up.icon-white
+              - if(c.title != @tree[r.title][-1].title)
+                %i.icon-circle-arrow-down.icon-white
+            %td= c.permalink
+            %td= c.visible
+            %td= link_to "Edit", edit_page_path(c)
     = link_to 'New Page', new_page_path
 
   %h4.yellow Manage Resources

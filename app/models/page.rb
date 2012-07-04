@@ -32,6 +32,13 @@ class Page
     (self.markup ? self.markup_content : self.html_content) || ""
   end
 
+  def <=>(other)
+    return 0 if !order && !other.order
+    return 1 if !order
+    return -1 if !other.order
+    order <=> other.order
+  end
+
   def source= content
     if self.markup
       self.markup_content = content

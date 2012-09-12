@@ -7,5 +7,6 @@ class AdminsController < ApplicationController
     @tree = Hash[ @roots.collect { |r| [r.title, Page.where(parent: r.title).order_by(:order, :asc)] } ]
     @resources = Resource.all
     @images = Image.all
+    @community_groups = CommunityGroup.all
   end
 end

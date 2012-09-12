@@ -1,0 +1,49 @@
+= form_for @group, html: { class: 'form-horizontal' } do |f|
+
+  .control-group
+    = f.label :meeting_day, class: 'control-label'
+    .controls
+      = f.select :meeting_day, weekday_options, { prompt: 'Select Weekday' }
+
+  .control-group
+    = f.label :meeting_time, class: 'control-label'
+    .controls
+      = f.time_select :meeting_time, { minute_step: 15 }
+
+  .control-group
+    = f.label :description, class: 'control-label', rows: 10
+    .controls
+      = f.text_area :description
+
+  %fieldset
+    %h4.yellow Address
+    = f.fields_for :address do |g|
+      .control-group
+        = g.label :street, class: 'control-label'
+        .controls
+          = g.text_field :street
+      .control-group
+        = g.label :city, class: 'control-label'
+        .controls
+          = g.text_field :city
+      .control-group
+        = g.label :state, class: 'control-label'
+        .controls
+          = g.text_field :state
+      .control-group
+        = g.label :zip, class: 'control-label'
+        .controls
+          = g.text_field :zip
+
+  %fieldset
+    %h4.yellow Leaders
+    = f.fields_for :leaders do |g|
+      .control-group.table-control-group
+        %thead
+          %th one
+          %th two
+        %tbody
+
+
+  .actions
+    = f.submit 'Create'

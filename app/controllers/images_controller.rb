@@ -1,23 +1,17 @@
 class ImagesController < ApplicationController
   before_filter :authenticate_user!
+  respond_to :html
 
-  # GET /images/new
-  # GET /images/new.json
   def new
     @image = Image.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @image }
-    end
+    respond_with @image
   end
 
-  # POST /images
-  # POST /images.json
   def create
     @image = Image.new(params[:image])
 
-    respond_to do |format|
+    respond_with do |format|
       if @image.save
         format.html { redirect_to admin_dashboard_path, notice: 'Image was successfully created.' }
         format.json { render json: @image, status: :created, location: @image }
@@ -30,17 +24,12 @@ class ImagesController < ApplicationController
 
   def show
     @image = Image.find(params[:id])
+    respond_with @image
   end
 
-  # DELETE /images/1
-  # DELETE /images/1.json
   def destroy
     @image = Image.find(params[:id])
     @image.destroy
-
-    respond_to do |format|
-      format.html { redirect_to admin_dashboard_path }
-      format.json { head :ok }
-    end
+    respond_with @image
   end
 end

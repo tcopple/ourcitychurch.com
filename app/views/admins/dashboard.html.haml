@@ -85,3 +85,23 @@
             %td= link_to 'Show', r
             %td= link_to 'Destroy', r, confirm: 'Are you sure?', method: :delete
       = link_to 'New Image', new_image_path
+
+  %h4.yellow Manage Community Groups
+  .section
+    - if @community_groups.empty?
+      %h5
+        No community groups in database, click
+        = link_to 'here', new_community_group_path
+        to add one.
+    - else
+      %table
+        %thead
+          %th Name
+          %th Update On
+        - @community_groups.each do |r|
+          %tr
+            %td= link_to r.filename, r.file.url
+            %td= r.updated_at.getlocal.strftime('%Y.%m.%d')
+            %td= link_to 'Show', r
+            %td= link_to 'Destroy', r, confirm: 'Are you sure?', method: :delete
+      = link_to 'New Community Group', community_group_path

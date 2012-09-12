@@ -25,4 +25,8 @@ module ApplicationHelper
   def show_promos?
     controller.controller_name == 'pages' && controller.action_name == 'show'
   end
+
+  def weekday_options
+    [:sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday].collect { |day| [day.to_s.titleize, day] }
+  end
 end

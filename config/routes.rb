@@ -11,6 +11,8 @@ Citychurch::Application.routes.draw do
   resources :resources
   resources :images
   resources :banners, :only => [:new, :create, :destroy]
+  resources :community_groups, only: [:new, :create, :destroy]
+  resources :community_group_leaders, only: [:new, :create, :destroy]
 
   match 'resources' => 'resource#index', :as => :resources
   match ':permalink' => 'pages#show', :as => :permalink

@@ -16,34 +16,29 @@
       = f.text_area :description
 
   %fieldset
-    %h4.yellow Address
-    = f.fields_for :address do |g|
-      .control-group
-        = g.label :street, class: 'control-label'
-        .controls
-          = g.text_field :street
-      .control-group
-        = g.label :city, class: 'control-label'
-        .controls
-          = g.text_field :city
-      .control-group
-        = g.label :state, class: 'control-label'
-        .controls
-          = g.text_field :state
-      .control-group
-        = g.label :zip, class: 'control-label'
-        .controls
-          = g.text_field :zip
+    %legend
+      Address
+    = f.fields_for :address do |a|
+      = bootstrapped_field(a, @group.address, :text_field, :street)
+      = bootstrapped_field(a, @group.address, :text_field, :city)
+      = bootstrapped_field(a, @group.address, :text_field, :state)
+      = bootstrapped_field(a, @group.address, :text_field, :zip)
 
   %fieldset
-    %h4.yellow Leaders
-    = f.fields_for :leaders do |g|
-      .control-group.table-control-group
+    %legend
+      Leaders
+    .control-group.table-control-group
+      %table.table.table-bordered.table-condensed
         %thead
-          %th one
-          %th two
+          %tr
+            %th first name
+            %th last name
+            %th email
         %tbody
-
+          = f.fields_for :leaders do |cgl|
+            %tr
+              = render 'leader_fields', :f => cgl
+      = link_to_add_fields "Add Leader", f, :leaders
 
   .actions
     = f.submit 'Create'

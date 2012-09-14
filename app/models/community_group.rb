@@ -7,5 +7,15 @@ class CommunityGroup
   field :description, type: String
 
   embeds_one :address, cascade_callbacks: true
-  has_many :leaders, class_name: 'CommunityGroupLeaders'
+  accepts_nested_attributes_for :address,
+                                :reject_if => lambda { |a| a[:street].blank?
+                                                        || a[:city].blank?
+                                                        || a[:state].blank?
+                                                        || a[:zip].blank? },
+                                :allow_estroy => true
+
+  has_many :leaders, class_name: 'CommunityGroupLeader'
+  accepts_nested_attributes_for :community_group_leader,
+                                :reject_if => lambda { |a| a[:email].blank? },
+                                :allow_estroy => true
 end

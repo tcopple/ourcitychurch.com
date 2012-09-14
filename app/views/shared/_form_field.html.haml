@@ -1,0 +1,8 @@
+-# - error_class = object.errors.has_key?(field) ? 'error' : ''
+- error_class = ''
+.control-group{:class => (error_class)}
+  = builder.label field, :class => 'control-label'
+  .controls
+    = builder.send(type, *(opts.unshift(field)))
+    - if not error_class.empty?
+      %span.help-inline= object.errors[field].first

@@ -4,6 +4,8 @@ class CommunityGroupsController < ApplicationController
 
   def new
     @group = CommunityGroup.new
+    @group.build_address
+    @group.leaders.build
     respond_with @group
   end
 

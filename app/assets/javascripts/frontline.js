@@ -17,7 +17,7 @@ function fetch_blog() {
 
       $.each(feeds.entries, function(i, post) {
         var dte = new Date(post.publishedDate);
-        var blog_post = $("<div class='blog'></div>");
+        var blog_post = $("<div class='item'></div>");
         var date_header = $("<div class='date gray'>" + $.datepicker.formatDate("d MM yy", dte) + "</div>");
         var title = $("<div class='blog_title'> <a href='" + post.link + "'>"+ post.title + "</a></div>");
 
@@ -26,7 +26,7 @@ function fetch_blog() {
 
         blog_post.appendTo("ul#blogs")
       });
-    }, 3);
+    }, 4);
 }
 
 function fetch_tweets(handle, count, page) {

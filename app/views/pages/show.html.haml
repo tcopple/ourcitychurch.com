@@ -1,12 +1,12 @@
 - if @page.permalink != 'home'
-  #content.shadow
-    #text
-      %h3.yellow.bold= @page.title
-      %p
-        - if @page.markup
-          = markdown @page.source
-        - else
-          = @page.source.html_safe
+  #content.box.anchor
+    %legend
+      = @page.title
+    %p
+      - if @page.markup
+        = markdown @page.source
+      - else
+        = @page.source.html_safe
 - else
   = render "shared/banners"
 

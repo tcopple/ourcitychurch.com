@@ -1,109 +1,13 @@
 @charset "UTF-8";
 
-html {
-}
-
-body {
-  background: image-url("bg.jpg");
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  -moz-background-size: cover;
-
-  padding: 20px 0px 40px 0px;
-  color: #fff;
-  font-family: 'Shanti', sans-serif;
-  text-align: left;
-}
-
-.clear { clear:both; }
-.right { float: right; }
-.left { float: left; }
-.inline { display: inline; }
-.block { display: block; }
-.center { text-align: center; }
-.text-right { text-align: right; }
-.text-left { text-align: left; }
-.middle { vertical-align: middle; }
-.hide { visibility: hidden; }
-.seperator { width: 10px; float: left; height: 1px; }
-.shadow {
-  -moz-box-shadow: 5px 5px 8px #000;
-  -webkit-box-shadow: 5px 5px 8px #000;
-  box-shadow: 5px 5px 8px #000;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
-  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
-}
-
-h1 { font-size: 2.0em; line-height: 2.0em; }
-h2 { font-size: 1.8em; line-height: 1.8em; }
-h3 { font-size: 1.6em; line-height: 1.6em; }
-h4 { font-size: 1.4em; line-height: 1.4em; }
-h5 { font-size: 1.2em; line-height: 1.2em; }
-h6 { font-size: 0.8em; }
-.inline1 { font-size: 2.0em; line-height: 2.0em; }
-.inline2 { font-size: 1.8em; line-height: 1.8em; }
-.inline3 { font-size: 1.6em; line-height: 1.6em; }
-.inline4 { font-size: 1.4em; line-height: 1.4em; }
-.inline5 { font-size: 1.2em; line-height: 1.2em; }
-.inline6 { font-size: 0.8em; }
-p { font-size: 1.0em; line-height: 1.0em; margin-bottom: 1.0em; }
-
-blockquote { padding: 5px 20px; font-style: italic;}
-.italic { font-style: italic; }
-.bold { font-weight: bold; }
-
-.red { color: #c22e2e; }
-.yellow { color: #fece1f; }
-.gray { color: #999; }
-.scripture { color: #ccc; }
-
-input.text {
-  padding: 3px;
-  border: 1px solid #999999;
-}
-
-a {
-  color: #fece1f;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-table {
-  width: 100%;
-  thead {
-    font-weight: bold;
-
-    th {
-      padding-bottom: 3px;
-      color: #fece1f;
-    }
-  }
-
-  tr {
-    td {
-      padding: 5px;
-      border-collapse: collapse;
-      border: 1px solid #999;
-
-      &.bump {
-        padding-left: 20px;
-      }
-    }
-  }
-}
-
-strong {
-  font-weight: bold;
-}
-
-em {
-  font-style: italic;
-}
-
-label {
-  padding: 0px 5px 5px 0px;
-}
+@import "variables";
+@import "mixins";
+@import "basics";
+@import "content";
+@import "feeds";
+@import "footer";
+@import "navigation";
+@import "promos";
+@import "admin";
+@import "banners";
+@import "form";

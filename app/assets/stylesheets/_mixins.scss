@@ -1,0 +1,38 @@
+@mixin border-right($width) { border-right: $width solid $gray; }
+@mixin border-bottom($width) { border-bottom: $width solid $gray; }
+@mixin border-left($width) { border-left: $width solid $gray; }
+@mixin border-top($width) { border-top: $width solid $gray; }
+
+@mixin border($width) {
+  @include border-top($width);
+  @include border-right($width);
+  @include border-bottom($width);
+  @include border-left($width);
+}
+
+@mixin anchor-border($width: 1px) {
+  @include border-top(0px);
+  @include border-right($width);
+  @include border-bottom($width);
+  @include border-left(0px);
+}
+
+@mixin shadow {
+  -moz-box-shadow: 5px 5px 8px #000;
+  -webkit-box-shadow: 5px 5px 8px #000;
+  box-shadow: 5px 5px 8px #000;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+}
+
+@mixin box-sizing($type: "border") {
+  box-sizing: #{$type}-box;
+  -moz-box-sizing: #{$type}-box;
+  -ms-box-sizing: #{$type}-box;
+  -webkit-box-sizing: #{$type}-box;
+}
+
+@mixin border-radius($radius-size: 30px) {
+  -moz-border-radius: $radius-size;
+  border-radius: $radius-size;
+}

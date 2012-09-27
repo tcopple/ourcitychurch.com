@@ -13,7 +13,12 @@ class CommunityGroupsController < ApplicationController
     @group = CommunityGroup.new(params[:community_group])
 
     flash[:notice] = 'CommunityGroup was successfully created.' if @group.save
-    respond_with @group
+    # respond_with @group
+    if @group.save
+      redirect_to admin_dashboard_path, notice: "Successfully created resource."
+    else
+      render :action => 'new'
+    end
   end
 
   def edit
@@ -31,6 +36,6 @@ class CommunityGroupsController < ApplicationController
     @group = CommunityGroup.find(params[:id])
     @group.destroy
 
-    respond_with @group
+    redirect_to admin_dashboard_path, :notice => "Successfully destroyed community group."
   end
 end

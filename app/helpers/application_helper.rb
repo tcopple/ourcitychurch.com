@@ -45,4 +45,8 @@ module ApplicationHelper
   def bootstrapped_field(builder, obj, input_type, field, *opts)
     render :partial => 'shared/form_field', :locals => { builder: builder, type: input_type, object: obj, field: field, opts: opts }
   end
+
+  def add_new_button(link_path, content)
+    render :partial => 'shared/add_new_button', :locals => { path: link_path, content: content }
+  end
 end

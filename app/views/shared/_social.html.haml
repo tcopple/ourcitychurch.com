@@ -1,17 +1,17 @@
 -content_for :social do
   .grid_16
     #feeds
-      .feed.first.shadow
-        .blogs
-          %h4.yellow justin's blog
+      .feed.first
+        .blog
+          .title justin's blog
           %ul#blogs
-      .feed.shadow
+      .feed
         .tweets
-          %h4.yellow= link_to 'twitter', 'http://www.twitter.com/fl_citychurch'
+          .title= link_to 'twitter', 'http://www.twitter.com/fl_citychurch'
           %ul#tweets
-      .feed.last.shadow
+      .feed.last
         .calendar
-          %h4.yellow calendar
+          .title calendar
           #events
   .clear
 

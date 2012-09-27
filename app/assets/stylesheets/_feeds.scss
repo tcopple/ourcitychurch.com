@@ -1,0 +1,51 @@
+#feeds {
+  width: 100%;
+  display: block;
+
+  .feed {
+    .title {
+      color: $yellow;
+      font-size: $h4;
+      margin-bottom: 5%;
+    }
+
+    @include anchor-border;
+    @include shadow;
+    @include box-sizing(border);
+
+    display: inline;
+    float: left;
+
+    height: 250px;
+    width: 32%;
+
+    margin: 0% 1% 0% 1%;
+    padding: 1.5% 2%;
+
+    background: #000;
+    background: rgba(0, 0, 0, 0.8);
+
+    .item  {
+      margin: 4% 0%;
+      a { color: $white; }
+    }
+
+    .tweets {
+      .tweet {
+        p {
+          font-size: $base-font-size * 1.5;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .feed.first { margin-left: 0px; }
+  .feed.last { margin-right: 0px; }
+
+  .date {
+    font-size: $h6;
+    padding-bottom: 4px;
+    color: lighten($gray, 20%);
+  }
+}

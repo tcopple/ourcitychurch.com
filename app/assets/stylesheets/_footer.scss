@@ -1,0 +1,10 @@
+#footer {
+  margin-top: 2%;
+  font-size: $base-font-size * .9;
+
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

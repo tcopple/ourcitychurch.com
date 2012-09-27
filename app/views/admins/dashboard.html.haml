@@ -1,5 +1,5 @@
-#content.shadow
-  %h4.yellow Manage Banners
+#content.box.anchor
+  %legend Manage Banners
   .section
     - if @banners.empty?
       %h5
@@ -17,9 +17,9 @@
             %td= b.created_at.getlocal.strftime('%Y.%m.%d')
             %td= link_to "Show", b.file.url
             %td= link_to 'Destroy', b, confirm: 'Are you sure?', method: :delete
-      = link_to 'New Banner', new_banner_path
+      = add_new_button(new_banner_path, "New Banner")
 
-  %h4.yellow Manage Pages
+  %legend Manage Pages
   .section
     %table
       %thead
@@ -45,9 +45,9 @@
             %td= c.permalink
             %td= c.visible
             %td= link_to "Edit", edit_page_path(c)
-    = link_to 'New Page', new_page_path
+    = add_new_button(new_page_path, "New Page")
 
-  %h4.yellow Manage Resources
+  %legend Manage Resources
   .section
     - if @resources.empty?
       %h5
@@ -64,9 +64,9 @@
             %td= link_to r.filename, r.file.url
             %td= r.updated_at.getlocal.strftime('%Y.%m.%d')
             %td= link_to 'Destroy', r, confirm: 'Are you sure?', method: :delete
-      = link_to 'New Resource', new_resource_path
+      = add_new_button(new_resource_path, "New Resource")
 
-  %h4.yellow Manage Images
+  %legend Manage Images
   .section
     - if @images.empty?
       %h5
@@ -84,9 +84,9 @@
             %td= r.updated_at.getlocal.strftime('%Y.%m.%d')
             %td= link_to 'Show', r
             %td= link_to 'Destroy', r, confirm: 'Are you sure?', method: :delete
-      = link_to 'New Image', new_image_path
+      = add_new_button(new_image_path, "New Image")
 
-  %h4.yellow Manage Community Groups
+  %legend Manage Community Groups
   .section
     - if @community_groups.empty?
       %h5
@@ -97,11 +97,15 @@
       %table
         %thead
           %th Name
-          %th Update On
-        - @community_groups.each do |r|
+          %th Meeting Day
+          %th Time
+          %th Description
+        - @community_groups.each do |cg|
           %tr
-            %td= link_to r.filename, r.file.url
-            %td= r.updated_at.getlocal.strftime('%Y.%m.%d')
-            %td= link_to 'Show', r
-            %td= link_to 'Destroy', r, confirm: 'Are you sure?', method: :delete
-      = link_to 'New Community Group', community_group_path
+            %td= cg.leaders.collect { |l| "#{l.first} #{l.last}" }.join(' ')
+            %td= cg.meeting_day
+            %td= cg.meeting_time.strftime('%Y.%m.%d')
+            %td= cg.description
+            %td= link_to 'Show', cg
+            %td= link_to 'Destroy', cg, confirm: 'Are you sure?', method: :delete
+      = add_new_button(new_community_group_path, "New Community Group")

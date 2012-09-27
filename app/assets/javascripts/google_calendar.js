@@ -105,7 +105,7 @@ function listEvents(feedRoot) {
       continue;
     }
 
-    var calendar_event = $("<div class='event'></div>");
+    var calendar_event = $("<div class='item'></div>");
 
     var times = entries[i].getTimes();
     var dte = times[0].getStartTime().getDate();

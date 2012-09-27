@@ -2,7 +2,7 @@ class Address
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  embedded_in :community_group
+  embedded_in :community_group, :inverse_of => :address
 
   field :street, type: String
   field :city, type: String

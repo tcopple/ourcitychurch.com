@@ -24,21 +24,21 @@
       = bootstrapped_field(a, @group.address, :text_field, :state)
       = bootstrapped_field(a, @group.address, :text_field, :zip)
 
-  %fieldset
-    %legend
-      Leaders
-    .control-group.table-control-group
-      %table.table.table-bordered.table-condensed
-        %thead
-          %tr
-            %th first name
-            %th last name
-            %th email
-        %tbody
-          = f.fields_for :leaders do |cgl|
-            %tr
-              = render 'leader_fields', :f => cgl
-      = link_to_add_fields "Add Leader", f, :leaders
+  -#   %fieldset
+  -#     %legend
+  -#       Leaders
+  -#     .control-group.table-control-group
+  -#       %table.table.table-bordered.table-condensed
+  -#         %thead
+  -#           %tr
+  -#             %th first name
+  -#             %th last name
+  -#             %th email
+  -#         %tbody
+  -#           = f.fields_for @group.leaders do |cgl|
+  -#             %tr
+  -#               = render 'leader_fields', :f => cgl
+  -#       = link_to_add_fields "Add Leader", f, :leaders
 
   .actions
     = f.submit 'Create'

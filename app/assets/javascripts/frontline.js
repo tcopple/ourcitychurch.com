@@ -33,7 +33,7 @@ function fetch_tweets(handle, count, page) {
   if(page == undefined)
     page = 1;
 
-  var url ="https://api.twitter.com/statuses/user_timeline.json?include_entities=true&include_rts=true&exclude_replies=true&screen_name=" + handle + "&count=" + count + "&callback=?";
+  var url ="http://api.twitter.com/1/statuses/user_timeline.json?screen_name=" + handle + "&count=" + count + "&callback=?";
 
   var ret = new Array();
   $.getJSON(url,function(data) {

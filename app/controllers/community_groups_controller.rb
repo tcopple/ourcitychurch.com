@@ -12,10 +12,8 @@ class CommunityGroupsController < ApplicationController
   def create
     @group = CommunityGroup.new(params[:community_group])
 
-    flash[:notice] = 'CommunityGroup was successfully created.' if @group.save
-    # respond_with @group
     if @group.save
-      redirect_to admin_dashboard_path, notice: "Successfully created resource."
+      redirect_to admin_dashboard_path, notice: "Successfully created community group."
     else
       render :action => 'new'
     end

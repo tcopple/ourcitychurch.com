@@ -8,5 +8,6 @@ class AdminsController < ApplicationController
     @resources = Resource.all
     @images = Image.all
     @community_groups = CommunityGroup.all
+    @community_group_leaders = CommunityGroupLeader.all
   end
 end

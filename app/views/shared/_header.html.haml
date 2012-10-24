@@ -9,8 +9,6 @@
           %li
             = link_to root.menu_title, permalink_path(:permalink => root.permalink)
             %ul.sub
-              - pp sub
-              - pp sub.class
               - sub.sort.each do |sub_page|
                 %li= link_to sub_page.menu_title, permalink_path(:permalink => sub_page.permalink)
 .clear

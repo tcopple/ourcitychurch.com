@@ -3,5 +3,4 @@ class CommunityGroupLeader < User
 
   field :first, type: String
   field :last, type: String
-  field :email, type: String
 end

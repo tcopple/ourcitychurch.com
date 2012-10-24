@@ -1,0 +1,19 @@
+= form_for @leader, html: { class: 'form-horizontal' } do |f|
+
+  .control-group
+    = f.label :first, class: 'control-label'
+    .controls
+      = f.text_field :first
+
+  .control-group
+    = f.label :last, class: 'control-label'
+    .controls
+      = f.text_field :last
+
+  .control-group
+    = f.label :email, class: 'control-label'
+    .controls
+      = f.text_field :email
+
+  .actions
+    = f.submit 'Create'

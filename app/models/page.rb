@@ -22,6 +22,8 @@ class Page
   field :markup_content, type: String
   field :html_content, type: String
 
+  field :editable, type: Boolean, :default => true
+
   key :permalink
 
   def title
@@ -53,5 +55,9 @@ class Page
     Page.where(:parent => nil, :visible => true, :link => nil)
         .collect{|p| [p.menu_title, p.menu_title]}
         .unshift(["None", nil])
+  end
+
+  def editable?
+    editable
   end
 end

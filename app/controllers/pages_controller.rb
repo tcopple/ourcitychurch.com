@@ -4,7 +4,15 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.find(params[:permalink] || params[:id])
-    redirect_to @page.link if not @page.link.nil? and not @page.link.empty?
+
+    #there's a more oo tricksy way to to this but it's late
+    #and dynamically loaded content needs to be loaded differently
+    #from user editable content
+    if @page.editable?
+      redirect_to @page.link if not @page.link.nil? and not @page.link.empty?
+    else
+      send(@page.permalink.gsub('-','_'))
+    end
   end
 
   def edit
@@ -41,5 +49,10 @@ class PagesController < ApplicationController
 
     # respond_with({up: @left, down: @right})
     redirect_to admin_dashboard_path
+  end
+
+  def community_groups
+    @community_groups = CommunityGroup.all
+    render action: :community_groups
   end
 end

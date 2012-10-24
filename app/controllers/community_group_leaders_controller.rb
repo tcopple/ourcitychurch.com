@@ -6,9 +6,24 @@ class CommunityGroupLeadersController < ApplicationController
 
   end
 
+  def new
+    @leader = CommunityGroupLeader.new
+    respond_with @leader
+  end
+
   def create
     @leader = CommunityGroupLeader.new(params[:community_group_leader])
-    flash[:notice] = 'Leader was successfully created.' if @leader.save
+    @leader.password = "#{@leader.last.downcase}#{@leader.first.downcase}"
+
+    if @leader.save
+      redirect_to admin_dashboard_path, notice: "Successfully created leader."
+    else
+      render :action => 'new'
+    end
+  end
+
+  def edit
+    @leader = CommunityGroupLeader.new(params[:community_group_leader])
     respond_with @leader
   end
 
@@ -22,6 +37,6 @@ class CommunityGroupLeadersController < ApplicationController
     @leader = CommunityGroupLeader.find(params[:id])
     @leader.destroy
 
-    respond_with @leader
+    redirect_to admin_dashboard_path
   end
 end

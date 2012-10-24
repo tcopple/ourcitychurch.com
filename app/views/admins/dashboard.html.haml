@@ -44,7 +44,10 @@
                 %i.icon-circle-arrow-down.icon-white
             %td= c.permalink
             %td= c.visible
-            %td= link_to "Edit", edit_page_path(c)
+            %td
+              - if c.editable?
+                = link_to "Edit", edit_page_path(c) if c.editable?
+
     = add_new_button(new_page_path, "New Page")
 
   %legend Manage Resources
@@ -85,6 +88,28 @@
             %td= link_to 'Show', r
             %td= link_to 'Destroy', r, confirm: 'Are you sure?', method: :delete
       = add_new_button(new_image_path, "New Image")
+
+  %legend Manage Community Group Leaders
+  .section
+    - if @community_group_leaders.empty?
+      %h5
+        No community group leaders in database, click
+        = link_to 'here', new_community_group_leader_path
+        to add one.
+    - else
+      %table
+        %thead
+          %th First Name
+          %th Last Name
+          %th Email
+        - @community_group_leaders.each do |cgl|
+          %tr
+            %td= cgl.first
+            %td= cgl.last
+            %td= cgl.email
+            %td= link_to 'Show', cgl
+            %td= link_to 'Destroy', cgl, confirm: 'Are you sure?', method: :delete
+      = add_new_button(new_community_group_leader_path, "New Community Group Leader")
 
   %legend Manage Community Groups
   .section

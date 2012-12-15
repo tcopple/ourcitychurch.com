@@ -31,3 +31,4 @@ cookbooks/*
 .yardoc
 _yardoc
 doc/
+.vagrant

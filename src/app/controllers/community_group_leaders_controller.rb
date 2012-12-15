@@ -3,7 +3,6 @@ class CommunityGroupLeadersController < ApplicationController
   respond_to :html
 
   def dashboard
-
   end
 
   def new

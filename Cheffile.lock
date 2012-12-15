@@ -1,0 +1,35 @@
+SITE
+  remote: http://community.opscode.com/api/v1
+  specs:
+    build-essential (1.1.2)
+    yum (1.0.0)
+
+GIT
+  remote: https://github.com/edelight/chef-mongodb.git
+  ref: master
+  sha: caa5b1581039233308f41b37286a170a0d9b62bd
+  specs:
+    mongodb (0.11.0)
+      apt (>= 0.0.0)
+      yum (>= 0.0.0)
+
+GIT
+  remote: https://github.com/fnichol/chef-rvm.git
+  ref: master
+  sha: 6cd79589c85365227c930a559cfedc4c5b8bf9f6
+  specs:
+    rvm (0.9.1)
+
+GIT
+  remote: https://github.com/opscode-cookbooks/apt.git
+  ref: master
+  sha: d9011dcfc4af935a7c5b5be512f90499f08683ba
+  specs:
+    apt (1.4.9)
+
+DEPENDENCIES
+  apt (>= 0)
+  build-essential (>= 0)
+  mongodb (>= 0)
+  rvm (>= 0)
+

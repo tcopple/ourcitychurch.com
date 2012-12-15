@@ -8,14 +8,12 @@ lib/bundler/man
 pkg
 rdoc
 spec/reports
-test/tmp
-test/version_tmp
-tmp
-log/
-public/images/
-public/banners/
-public/resources/
-config/mongoid.yml
+src/tmp
+src/log/
+src/public/images/
+src/public/banners/
+src/public/resources/
+src/config/mongoid.yml
 *~
 *.cache
 *.log
@@ -28,6 +26,7 @@ db/*.sqlite3
 *.tmproj
 *.sw?
 
+cookbooks/*
 # YARD artifacts
 .yardoc
 _yardoc

@@ -9,8 +9,12 @@ class BannersController < ApplicationController
 
   def create
     @banner = Banner.new(params[:banner])
-    flash[:notice] = 'Banner was successfully created.' if @banner.save
-    respond_with @banner
+
+    if @banner.save
+      redirect_to admin_dashboard_path, notice: "Successfully created banner."
+    else
+      render :action => 'new'
+    end
   end
 
   def destroy

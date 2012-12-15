@@ -21,6 +21,10 @@ class BannersController < ApplicationController
     @banner = Banner.find(params[:id])
     @banner.destroy
 
-    respond_with @banner
+    if @banner.destroyed?
+      redirect_to admin_dashboard_path, notice: "Successfully removed banner."
+    else
+      redirect_to admin_dashboard_path, notice: "Could not remove banner." << @banner.errors.join('\n')
+    end
   end
 end

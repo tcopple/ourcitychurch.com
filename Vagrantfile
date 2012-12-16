@@ -46,6 +46,7 @@ Vagrant::Config.run do |config|
     chef.roles_path = ["roles"]
     chef.data_bags_path = ["data-bags"]
 
+
     chef.add_recipe "apt"
     chef.add_recipe "build-essential"
     chef.add_recipe "rvm::vagrant"
@@ -55,5 +56,9 @@ Vagrant::Config.run do |config|
 
     # You may also specify custom JSON attributes:
     # chef.json = { :mysql_password => "foo" }
+  end
+
+  Vagrant::Config.run do |config|
+    config.vbguest.auto_update = true
   end
 end

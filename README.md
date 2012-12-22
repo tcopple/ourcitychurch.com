@@ -9,6 +9,8 @@ mkdir roles
 vagrant up
 
 vagrant ssh
+sudo usermod -a -G rvm vagrant
 cd src
 bundle install
-bundle exec rails s
+rails g mongoid:config
+rails s

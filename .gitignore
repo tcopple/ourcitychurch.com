@@ -25,6 +25,7 @@ coverage/*
 db/*.sqlite3
 *.tmproj
 *.sw?
+.sass-cache/
 
 cookbooks/*
 # YARD artifacts

@@ -1,6 +1,11 @@
 = form_for @group, html: { class: 'form-horizontal' } do |f|
 
   .control-group
+    = f.label :name, class: 'control-label'
+    .controls
+      = f.text_field :name
+
+  .control-group
     = f.label :meeting_day, class: 'control-label'
     .controls
       = f.select :meeting_day, weekday_options, { prompt: 'Select Weekday' }
@@ -24,21 +29,5 @@
       = bootstrapped_field(a, @group.address, :text_field, :state)
       = bootstrapped_field(a, @group.address, :text_field, :zip)
 
-  -#   %fieldset
-  -#     %legend
-  -#       Leaders
-  -#     .control-group.table-control-group
-  -#       %table.table.table-bordered.table-condensed
-  -#         %thead
-  -#           %tr
-  -#             %th first name
-  -#             %th last name
-  -#             %th email
-  -#         %tbody
-  -#           = f.fields_for @group.leaders do |cgl|
-  -#             %tr
-  -#               = render 'leader_fields', :f => cgl
-  -#       = link_to_add_fields "Add Leader", f, :leaders
-
   .actions
-    = f.submit 'Create'
+    = f.submit

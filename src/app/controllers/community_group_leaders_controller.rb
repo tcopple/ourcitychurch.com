@@ -22,14 +22,18 @@ class CommunityGroupLeadersController < ApplicationController
   end
 
   def edit
-    @leader = CommunityGroupLeader.new(params[:community_group_leader])
+    @leader = CommunityGroupLeader.find(params[:id])
     respond_with @leader
   end
 
   def update
     @leader = CommunityGroupLeader.find(params[:id])
     flash[:notice] = "Successfully updated leader." if @leader.update_attributes(params[:community_group_leader])
-    respond_with @leader
+    if @leader.save
+      redirect_to admin_dashboard_path, notice: "Successfully created leader."
+    else
+      render :action => 'edit'
+    end
   end
 
   def destroy

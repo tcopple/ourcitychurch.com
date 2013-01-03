@@ -15,5 +15,11 @@
     .controls
       = f.text_field :email
 
+  .control-group
+    = f.label :community_group, class: 'control-label'
+    .controls
+      - pp @leader.community_group_id
+      = f.select(:community_group, options_from_collection_for_select(CommunityGroup.all, :id, :name, selected: @leader.community_group_id))
+
   .actions
-    = f.submit 'Create'
+    = f.submit

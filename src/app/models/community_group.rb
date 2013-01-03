@@ -3,6 +3,7 @@ class CommunityGroup
   include Mongoid::Timestamps
   include Mongoid::MultiParameterAttributes
 
+  field :name, type: String
   field :meeting_day, type: String
   field :meeting_time, type: DateTime
   field :description, type: String
@@ -17,6 +18,5 @@ class CommunityGroup
 
   has_many :leaders, class_name: 'CommunityGroupLeader'
   accepts_nested_attributes_for :community_group_leader,
-                                :reject_if => lambda { |a| a[:email].blank? },
-                                :allow_estroy => true
+                                :allow_destroy => true
 end

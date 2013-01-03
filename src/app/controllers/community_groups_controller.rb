@@ -5,7 +5,6 @@ class CommunityGroupsController < ApplicationController
   def new
     @group = CommunityGroup.new
     @group.build_address
-    @group.leaders.build
     respond_with @group
   end
 
@@ -20,14 +19,18 @@ class CommunityGroupsController < ApplicationController
   end
 
   def edit
-    @group = CommunityGroup.new(params[:community_group])
+    @group = CommunityGroup.find(params[:id])
     respond_with @group
   end
 
   def update
     @group = CommunityGroup.find(params[:id])
-    flash[:notice] = "Successfully updated community group." if @group.update_attributes(params[:group])
-    respond_with @group
+    flash[:notice] = "Successfully updated community group." if @group.update_attributes(params[:community_group])
+    if @group.save
+      redirect_to admin_dashboard_path, notice: "Successfully created community group."
+    else
+      render :action => 'edit'
+    end
   end
 
   def destroy

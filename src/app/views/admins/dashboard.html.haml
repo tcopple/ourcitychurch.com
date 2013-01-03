@@ -107,7 +107,8 @@
             %td= cgl.first
             %td= cgl.last
             %td= cgl.email
-            %td= link_to 'Show', cgl
+            -# %td= link_to 'Show', cgl
+            %td= link_to 'Edit', edit_community_group_leader_path(cgl)
             %td= link_to 'Destroy', cgl, confirm: 'Are you sure?', method: :delete
       = add_new_button(new_community_group_leader_path, "New Community Group Leader")
 
@@ -127,10 +128,10 @@
           %th Description
         - @community_groups.each do |cg|
           %tr
-            %td= cg.leaders.collect { |l| "#{l.first} #{l.last}" }.join(' ')
+            %td= cg.name
             %td= cg.meeting_day
             %td= cg.meeting_time.strftime('%Y.%m.%d')
             %td= cg.description
-            %td= link_to 'Show', cg
+            %td= link_to 'Edit', edit_community_group_path(cg)
             %td= link_to 'Destroy', cg, confirm: 'Are you sure?', method: :delete
       = add_new_button(new_community_group_path, "New Community Group")

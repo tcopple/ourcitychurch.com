@@ -1,5 +1,3 @@
 %tr.fields
-  %td= f.text_field :first
-  %td= f.text_field :last
-  %td= f.text_field :email
+  %td= f.select(:id, options_from_collection_for_select(CommunityGroupLeader.all, :id, :name))
   %td= link_to_remove_fields "remove", f

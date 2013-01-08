@@ -53,6 +53,8 @@ class PagesController < ApplicationController
 
   def community_groups
     @community_groups = CommunityGroup.all
+    @json = @community_groups.select {|a| a.mappable? }.to_gmaps4rails
+
     render action: :community_groups
   end
 end

@@ -1,8 +1,8 @@
 #content.box.anchor
   %legend Community Groups
 
-  - @community_groups.each do |cg|
-    = cg.meeting_day
-    = cg.meeting_time
-    %hr
+  .community-groups
+    = gmaps4rails(@json)
+    - @community_groups.each do |cg|
+      = render partial: 'community_group', locals: { group: cg }
 

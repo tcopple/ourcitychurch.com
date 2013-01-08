@@ -1,0 +1,84 @@
+#header {
+  height: 80px;
+}
+
+#content #videos video {
+  position: absolute;
+  top: -1px;
+  left: 0px;
+}
+
+#content #buttons .button {
+  display: inline;
+  color: #fff;
+  width: 40%;
+  padding: 3px;
+  font-size: .75em;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  background: #444;
+  border: 1px solid #666
+  padding: 2px 10px 2px 10px;
+  font-weight: bolder;
+  margin: 0 8px;
+}
+
+.event {
+  padding: 6px 0px;
+}
+
+.event a {
+  color: #fff;
+}
+
+.author {
+  font-size: .7em;
+}
+
+#footer {
+  position: relative;
+  margin-top: 10px;
+  bottom: 0px;
+  display: block;
+  width: 100%;
+  font-size: .8em;
+}
+
+.footer_links {
+  display: inline;
+  float: left;
+}
+
+.copyright {
+  display: inline;
+  text-align: right;
+  float: right;
+}
+
+#page_content {
+  width: 700px;
+  border: 1px solid #666
+  display: block;
+  min-height: 400px;
+  background: #111;
+  float:right;
+}
+
+#page_content img {
+  margin: 0px 15px;
+  border: 1px solid #666
+}
+
+#page_content #text {
+  line-height: 125%;
+  padding: 10px;
+}
+
+#page_content #text p {
+  line-height: 125%;
+}
+
+.indent {
+  padding-left: 25px;
+}
+

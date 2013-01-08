@@ -54,6 +54,8 @@ GEM
     erubis (2.7.0)
     execjs (1.2.13)
       multi_json (~> 1.0)
+    geocoder (1.1.6)
+    gmaps4rails (1.5.6)
     haml (3.1.4)
     hike (1.2.1)
     hpricot (0.8.6)
@@ -150,6 +152,8 @@ DEPENDENCIES
   cancan
   coffee-rails (~> 3.1.1)
   devise
+  geocoder
+  gmaps4rails
   haml
   hpricot
   jquery-rails

@@ -6,6 +6,7 @@
     height: 114px;
     margin: 0px 0px 12px 0px;
     text-align: center;
+    @include shadow;
 
     img {
       width: 100%;

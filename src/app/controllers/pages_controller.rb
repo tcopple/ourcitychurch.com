@@ -53,7 +53,10 @@ class PagesController < ApplicationController
 
   def community_groups
     @community_groups = CommunityGroup.all
-    @json = @community_groups.select {|a| a.mappable? }.to_gmaps4rails
+    @json = @community_groups.select {|a| a.mappable? }.to_gmaps4rails do |cg, marker|
+      # marker.infowindow render_to_string partial: "/pages/community_group", locals: { group: cg }
+      "\"id\": \"#{cg.id}\""
+    end
 
     render action: :community_groups
   end

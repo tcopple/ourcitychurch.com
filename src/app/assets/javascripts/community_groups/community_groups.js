@@ -5,3 +5,4 @@
 // the compiled file.
 //
 //= require ./community_groups.maps
+//= require_tree ./gmaps4rails/.

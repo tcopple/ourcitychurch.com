@@ -33,4 +33,8 @@ module ApplicationHelper
   def add_new_button(link_path, content)
     render :partial => 'shared/add_new_button', :locals => { path: link_path, content: content }
   end
+
+  def home?
+    show_promos? && params[:permalink] == 'home'
+  end
 end

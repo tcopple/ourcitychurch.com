@@ -16,6 +16,10 @@ module AssetHelper
   def load_javascripts
     javascripts = ["application"]
 
+    if home? && Citychurch::Application::assets.find_asset("#{File.join("ourcitychurch", "ourcitychurch")}.js")
+      javascripts << File.join("ourcitychurch", "ourcitychurch") #if we're on the homepage include some extra stuff
+    end
+
     if Citychurch::Application::assets.find_asset("#{File.join(controller_name, controller_name)}.js")
       javascripts << File.join(controller_name, controller_name) #controller specific manifest
     end

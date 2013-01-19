@@ -1,4 +1,5 @@
 module WithAttachment
+  include Mongoid::Paperclip
   extend ActiveSupport::Concern
 
   included do

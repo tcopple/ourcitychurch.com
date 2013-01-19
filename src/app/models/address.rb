@@ -29,4 +29,12 @@ class Address
   def longitude
     coordinates.first
   end
+
+  def line_one
+    "#{street.titleize}"
+  end
+
+  def line_two
+     "#{city.titleize}, #{state.upcase} #{zip}"
+  end
 end

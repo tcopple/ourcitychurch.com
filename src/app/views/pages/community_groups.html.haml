@@ -3,17 +3,5 @@
 
   .community-groups
     = gmaps4rails(@json)
-    -# - @community_groups.each do |cg|
-      -# = render partial: 'community_group', locals: { group: cg }
-
-  -# $.each(Gmaps.map.markers, function(index, value) {
--# - content_for :scripts do
--#   <script type='text/javascript' charset='utf-8'>
--#   $(document).ready(function() {
--#   for(var i = 0; i < Gmaps.map.markers.length; ++i) {
--#   var marker = Gmaps.map.markers[i].getMapObject();
--#   google.maps.event.addListener(marker, 'click', function() {
--#   alert('hello');
--#   }
--#   }
--#   }
+    - @community_groups.each do |cg|
+      = render partial: 'community_group', locals: { group: cg }

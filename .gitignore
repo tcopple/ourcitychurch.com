@@ -10,9 +10,7 @@ rdoc
 spec/reports
 src/tmp
 src/log/
-src/public/images/
-src/public/banners/
-src/public/resources/
+src/public/**/*
 src/config/mongoid.yml
 *~
 *.cache

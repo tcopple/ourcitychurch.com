@@ -1,7 +1,10 @@
 #content.box.anchor
   %legend Community Groups
 
-  .community-groups
+  .community-groups-map
     = gmaps4rails(@json)
+  .community-groups
+    .directions
+      Directions: Click an icon on the map to see information about a given group.
     - @community_groups.each do |cg|
       = render partial: 'community_group', locals: { group: cg }

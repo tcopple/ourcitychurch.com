@@ -125,13 +125,11 @@
           %th Name
           %th Meeting Day
           %th Time
-          %th Description
         - @community_groups.each do |cg|
           %tr
             %td= cg.name
             %td= cg.meeting_day
             %td= cg.meeting_time.strftime('%Y.%m.%d')
-            %td= cg.description
             %td= link_to 'Edit', edit_community_group_path(cg)
             %td= link_to 'Destroy', cg, confirm: 'Are you sure?', method: :delete
       = add_new_button(new_community_group_path, "New Community Group")

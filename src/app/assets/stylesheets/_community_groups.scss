@@ -1,6 +1,6 @@
 @import "variables";
 
-.community-groups {
+.community-groups-map {
   .map_container {
     @include border(1px);
     @include shadow;
@@ -11,6 +11,60 @@
     background: $gray;
     opacity: .5;
     width: 100%;
-    height: 200px;
+    height: 300px;
+  }
+
+  @include padding-bottom(30px);
+}
+
+.community-groups {
+  .directions {
+    text-align: center;
+    font-size: $h5;
+    line-height: $h5;
+    @include padding-bottom(30px);
+  }
+
+  .community-group-wrapper {
+    @include padding-top(30px);
+    @include padding-bottom(30px);
+    display: none;
+
+    .community-group {
+      position: relative;
+      display: block;
+
+      .photo {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        @include padding-right(15px);
+
+        img {
+          @include anchor-border;
+        }
+      }
+
+      .details {
+        @include padding-left(210px);
+
+        .title {
+          font-size: $h5;
+          line-height: $h5;
+          color: $yellow;
+        }
+
+        .when {
+          @include padding-bottom(10px)
+        }
+
+        .address {
+          @include padding-bottom(10px)
+        }
+
+        .description {
+        }
+      }
+    }
   }
 }

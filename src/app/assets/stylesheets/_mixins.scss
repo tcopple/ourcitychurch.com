@@ -1,3 +1,15 @@
+@mixin padding-right($width: 10px) { padding-right: $width; }
+@mixin padding-left($width: 10px) { padding-left: $width; }
+@mixin padding-bottom($width: 10px) { padding-bottom: $width; }
+@mixin padding-top($width: 10px) { padding-top: $width; }
+
+@mixin padding($width: 10px) {
+  @include padding-right($width);
+  @include padding-left($width);
+  @include padding-top($width);
+  @include padding-bottom($width);
+}
+
 @mixin border-right($width) { border-right: $width solid $gray; }
 @mixin border-bottom($width) { border-bottom: $width solid $gray; }
 @mixin border-left($width) { border-left: $width solid $gray; }
@@ -36,3 +48,4 @@
   -moz-border-radius: $radius-size;
   border-radius: $radius-size;
 }
+

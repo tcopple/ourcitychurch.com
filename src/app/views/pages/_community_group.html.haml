@@ -10,4 +10,6 @@
         .line-one= group.address.line_one
         .line-two= group.address.line_two
       .description= group.description
-      -# = group.leaders.collect {|cgl| cgl.first}
+      .leaders
+        - group.leaders.each do |l|
+          .leader= l.email

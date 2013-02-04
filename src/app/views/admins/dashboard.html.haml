@@ -1,135 +1,156 @@
 #content.box.anchor
-  %legend Manage Banners
-  .section
-    - if @banners.empty?
-      %h5
-        No banners in database, click
-        = link_to 'here', new_banner_path
-        to add one.
-    - else
-      %table
-        %thead
-          %th Name
-          %th Created
-        - @banners.each do |b|
-          %tr
-            %td= b.filename
-            %td= b.created_at.getlocal.strftime('%Y.%m.%d')
-            %td= link_to "Show", b.file.url
-            %td= link_to 'Destroy', b, confirm: 'Are you sure?', method: :delete
-      = add_new_button(new_banner_path, "New Banner")
+  %ul.nav.nav-tabs
+    %li.active
+      %a{href: '#banners', 'data-toggle' => 'tab'} Banners
+    %li
+      %a{href: '#pages', 'data-toggle' => 'tab'} Pages
+    %li
+      %a{href: '#resources', 'data-toggle' => 'tab'} Resources
+    %li
+      %a{href: '#images', 'data-toggle' => 'tab'} Images
+    %li
+      %a{href: '#leaders', 'data-toggle' => 'tab'} Community Group Leaders
+    %li
+      %a{href: '#groups', 'data-toggle' => 'tab'} Community Groups
 
-  %legend Manage Pages
-  .section
-    %table
-      %thead
-        %th Name
-        %th Permalink
-        %th Visible
-        %th
-        %th
-      - @roots.each do |r|
-        %tr
-          %td= link_to r.title, r
-          %td= r.permalink
-          %td= r.visible
-          %td= link_to "Edit", edit_page_path(r)
-        - @tree[r.title].each do |c|
-          %tr{ class: 'sub-page', id: c.permalink }
-            %td.bump
-              = link_to c.title, c
-              - if(c.title != @tree[r.title].first.title)
-                %i.icon-circle-arrow-up.icon-white
-              - if(c.title != @tree[r.title][-1].title)
-                %i.icon-circle-arrow-down.icon-white
-            %td= c.permalink
-            %td= c.visible
-            %td
-              - if c.editable?
-                = link_to "Edit", edit_page_path(c) if c.editable?
+  .tab-content
+    .tab-pane.active#banners
+      %legend Manage Banners
+      .section
+        - if @banners.empty?
+          %h5
+            No banners in database, click
+            = link_to 'here', new_banner_path
+            to add one.
+        - else
+          %table
+            %thead
+              %th Name
+              %th Created
+            - @banners.each do |b|
+              %tr
+                %td= b.filename
+                %td= b.created_at.getlocal.strftime('%Y.%m.%d')
+                %td= link_to "Show", b.file.url
+                %td= link_to 'Destroy', b, confirm: 'Are you sure?', method: :delete
+          = add_new_button(new_banner_path, "New Banner")
 
-    = add_new_button(new_page_path, "New Page")
+    .tab-pane#pages
+      %legend Manage Pages
+      .section
+        %table
+          %thead
+            %th Name
+            %th Permalink
+            %th Visible
+            %th
+            %th
+          - @roots.each do |r|
+            %tr
+              %td= link_to r.title, r
+              %td= r.permalink
+              %td= r.visible
+              %td= link_to "Edit", edit_page_path(r)
+            - @tree[r.title].each do |c|
+              %tr{ class: 'sub-page', id: c.permalink }
+                %td.bump
+                  = link_to c.title, c
+                  - if(c.title != @tree[r.title].first.title)
+                    %i.icon-circle-arrow-up.icon-white
+                  - if(c.title != @tree[r.title][-1].title)
+                    %i.icon-circle-arrow-down.icon-white
+                %td= c.permalink
+                %td= c.visible
+                %td
+                  - if c.editable?
+                    = link_to "Edit", edit_page_path(c) if c.editable?
 
-  %legend Manage Resources
-  .section
-    - if @resources.empty?
-      %h5
-        No resources in database, click
-        = link_to 'here', new_resource_path
-        to add one.
-    - else
-      %table
-        %thead
-          %th Name
-          %th Update On
-        - @resources.each do |r|
-          %tr
-            %td= link_to r.filename, r.file.url
-            %td= r.updated_at.getlocal.strftime('%Y.%m.%d')
-            %td= link_to 'Destroy', r, confirm: 'Are you sure?', method: :delete
-      = add_new_button(new_resource_path, "New Resource")
+        = add_new_button(new_page_path, "New Page")
 
-  %legend Manage Images
-  .section
-    - if @images.empty?
-      %h5
-        No images in database, click
-        = link_to 'here', new_image_path
-        to add one.
-    - else
-      %table
-        %thead
-          %th Name
-          %th Update On
-        - @images.each do |r|
-          %tr
-            %td= link_to r.filename, r.file.url
-            %td= r.updated_at.getlocal.strftime('%Y.%m.%d')
-            %td= link_to 'Show', r
-            %td= link_to 'Destroy', r, confirm: 'Are you sure?', method: :delete
-      = add_new_button(new_image_path, "New Image")
+    .tab-pane#resources
+      %legend Manage Resources
+      .section
+        - if @resources.empty?
+          %h5
+            No resources in database, click
+            = link_to 'here', new_resource_path
+            to add one.
+        - else
+          %table
+            %thead
+              %th Name
+              %th Update On
+            - @resources.each do |r|
+              %tr
+                %td= link_to r.filename, r.file.url
+                %td= r.updated_at.getlocal.strftime('%Y.%m.%d')
+                %td= link_to 'Destroy', r, confirm: 'Are you sure?', method: :delete
+          = add_new_button(new_resource_path, "New Resource")
 
-  %legend Manage Community Group Leaders
-  .section
-    - if @community_group_leaders.empty?
-      %h5
-        No community group leaders in database, click
-        = link_to 'here', new_community_group_leader_path
-        to add one.
-    - else
-      %table
-        %thead
-          %th First Name
-          %th Last Name
-          %th Email
-        - @community_group_leaders.each do |cgl|
-          %tr
-            %td= cgl.first
-            %td= cgl.last
-            %td= cgl.email
-            -# %td= link_to 'Show', cgl
-            %td= link_to 'Edit', edit_community_group_leader_path(cgl)
-            %td= link_to 'Destroy', cgl, confirm: 'Are you sure?', method: :delete
-      = add_new_button(new_community_group_leader_path, "New Community Group Leader")
+    .tab-pane#images
+      %legend Manage Images
+      .section
+        - if @images.empty?
+          %h5
+            No images in database, click
+            = link_to 'here', new_image_path
+            to add one.
+        - else
+          %table
+            %thead
+              %th Name
+              %th Update On
+            - @images.each do |r|
+              %tr
+                %td= link_to r.filename, r.file.url
+                %td= r.updated_at.getlocal.strftime('%Y.%m.%d')
+                %td= link_to 'Show', r
+                %td= link_to 'Destroy', r, confirm: 'Are you sure?', method: :delete
+          = add_new_button(new_image_path, "New Image")
 
-  %legend Manage Community Groups
-  .section
-    - if @community_groups.empty?
-      %h5
-        No community groups in database, click
-        = link_to 'here', new_community_group_path
-        to add one.
-    - else
-      %table
-        %thead
-          %th Name
-          %th Meeting Day
-          %th Time
-        - @community_groups.each do |cg|
-          %tr
-            %td= cg.name
-            %td= cg.meeting_day
-            %td= cg.meeting_time.strftime('%Y.%m.%d')
-            %td= link_to 'Edit', edit_community_group_path(cg)
-            %td= link_to 'Destroy', cg, confirm: 'Are you sure?', method: :delete
-      = add_new_button(new_community_group_path, "New Community Group")
+    .tab-pane#leaders
+      %legend Manage Community Group Leaders
+      .section
+        - if @community_group_leaders.empty?
+          %h5
+            No community group leaders in database, click
+            = link_to 'here', new_community_group_leader_path
+            to add one.
+        - else
+          %table
+            %thead
+              %th First Name
+              %th Last Name
+              %th Email
+            - @community_group_leaders.each do |cgl|
+              %tr
+                %td= cgl.first
+                %td= cgl.last
+                %td= cgl.email
+                -# %td= link_to 'Show', cgl
+                %td= link_to 'Edit', edit_community_group_leader_path(cgl)
+                %td= link_to 'Destroy', cgl, confirm: 'Are you sure?', method: :delete
+          = add_new_button(new_community_group_leader_path, "New Community Group Leader")
+
+    .tab-pane#groups
+      %legend Manage Community Groups
+      .section
+        - if @community_groups.empty?
+          %h5
+            No community groups in database, click
+            = link_to 'here', new_community_group_path
+            to add one.
+        - else
+          %table
+            %thead
+              %th Name
+              %th Meeting Day
+              %th Time
+            - @community_groups.each do |cg|
+              %tr
+                %td= cg.name
+                %td= cg.meeting_day
+                %td= cg.meeting_time.strftime('%I:%M:%S %p')
+                %td= link_to 'Edit', edit_community_group_path(cg)
+                %td= link_to 'Destroy', cg, confirm: 'Are you sure?', method: :delete
+          = add_new_button(new_community_group_path, "New Community Group")

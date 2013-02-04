@@ -1,7 +1,9 @@
+@import "variables";
+@import "mixins";
+
 #banners {
   width: 100%;
   height: 400px;
-  background: rgba(1, 1, 1, 0.8);
   overflow: hidden;
 
   #pagers {

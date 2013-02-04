@@ -63,6 +63,13 @@
         }
 
         .description {
+          @include padding-bottom(10px);
+        }
+
+        .leaders {
+
+          .leader {
+          }
         }
       }
     }

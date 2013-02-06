@@ -1,15 +1,15 @@
 module ApplicationHelper
   def markdown(text)
-    renderer = Redcarpet::Render::HTML.new({:hard_wrap => false, :fitler_html => true})
-    markdown = Redcarpet::Markdown.new(renderer, {:no_intra_emphasis => true, :autolink => true})
+    renderer = Redcarpet::Render::HTML.new({hard_wrap: false, fitler_html: true})
+    markdown = Redcarpet::Markdown.new(renderer, {no_intra_emphasis: true, autolink: true})
     markdown.render(text).html_safe
   end
 
   def build_menu_hash
     Hash.new.tap do |menu|
-      Page.where(:parent => nil, :visible => true).each do |p|
+      Page.where(parent: nil, visible: true).each do |p|
         menu[p] ||= Array.new
-        menu[p].concat(Page.where(parent: p.title))
+        menu[p].concat(Page.where(parent: p.title, visible: true))
       end
     end
   end

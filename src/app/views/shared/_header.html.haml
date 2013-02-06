@@ -4,8 +4,7 @@
   .grid_11
     #navigation
       %ul.main.shadow
-        -# - build_menu_hash.sort{|m,n| m[0].order <=> n[0].order}.each do |root, sub|
-        - build_menu_hash.each do |root, sub|
+        - build_menu_hash.sort{|m,n| m[0].order <=> n[0].order}.each do |root, sub|
           %li
             = link_to root.menu_title, permalink_path(:permalink => root.permalink)
             %ul.sub

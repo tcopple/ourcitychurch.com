@@ -43,6 +43,7 @@
             %th Name
             %th Permalink
             %th Visible
+            %th Order
             %th
             %th
           - @roots.each do |r|
@@ -50,6 +51,7 @@
               %td= link_to r.title, r
               %td= r.permalink
               %td= r.visible
+              %td= r.order
               %td= link_to "Edit", edit_page_path(r)
             - @tree[r.title].each do |c|
               %tr{ class: 'sub-page', id: c.permalink }
@@ -61,6 +63,7 @@
                     %i.icon-circle-arrow-down.icon-white
                 %td= c.permalink
                 %td= c.visible
+                %td= c.order
                 %td
                   - if c.editable?
                     = link_to "Edit", edit_page_path(c) if c.editable?

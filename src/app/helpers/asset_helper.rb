@@ -21,7 +21,7 @@ module AssetHelper
     end
 
     if controller_name == "pages" && action_name == "show"
-      page = params[:id].gsub('-', '_').pluralize
+      page = (params[:permalink] || params[:id]).gsub('-', '_').pluralize
       javascripts << File.join(page, page) #manifest for specific pages javascript
     end
 

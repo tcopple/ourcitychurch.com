@@ -1,13 +1,23 @@
 #header
   .grid_5
     .logo= link_to image_tag('logo.png', :width => "100%"), '/'
-  .grid_11
-    #navigation
-      %ul.main.shadow
-        - build_menu_hash.sort{|m,n| m[0].order <=> n[0].order}.each do |root, sub|
-          %li
-            = link_to root.menu_title, permalink_path(:permalink => root.permalink)
-            %ul.sub
-              - sub.sort.each do |sub_page|
-                %li= link_to sub_page.menu_title, permalink_path(:permalink => sub_page.permalink)
+  .grid_11.alpha.omega
+    .grid_11
+      .social-shortcuts
+        %span.shortcut
+          =link_to image_tag('social_vimeo.png'), 'http://vimeo.com/citychurchnewhaven'
+        %span.shortcut
+          =link_to image_tag('social_twitter.png'), 'http://twitter.com/our_citychurch'
+        %span.shortcut
+          =link_to image_tag('social_facebook.png'), 'http://facebook.com/citychurchnewhaven'
+    .clear
+    .grid_11
+      #navigation
+        %ul.main
+          - build_menu_hash.sort{|m,n| m[0].order <=> n[0].order}.each do |root, sub|
+            %li
+              = link_to root.menu_title, permalink_path(:permalink => root.permalink)
+              %ul.sub
+                - sub.sort.each do |sub_page|
+                  %li= link_to sub_page.menu_title, permalink_path(:permalink => sub_page.permalink)
 .clear

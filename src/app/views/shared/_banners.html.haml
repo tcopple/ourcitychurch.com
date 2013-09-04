@@ -1,6 +1,6 @@
 %ul#banners.shadow
   #pagers
-  -Banner.all.each do |b|
+  -Banner.all.select {|b| b.live?}.each do |b|
     %li
       -if b.link_to.nil? || b.link_to.empty?
         = image_tag b.file.url

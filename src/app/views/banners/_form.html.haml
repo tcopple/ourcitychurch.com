@@ -11,5 +11,19 @@
       %p.help-block
         If a url (http://www.somesite.com) exists here, a link will be added to the banner.
 
+  .control-group
+    = f.label :start_on, class: 'control-label'
+    .controls
+      = datetime_select(:start_on, "starting date")
+      %p.help-block
+        Choose the date you'd like this slide to begin showing up.
+
+  .control-group
+    = f.label :end_on, class: 'control-label'
+    .controls
+      = datetime_select(:end_on, 'ending date')
+      %p.help-block
+        Choose the date you'd like this slide to stop showing up.
+
   .actions
     = f.submit

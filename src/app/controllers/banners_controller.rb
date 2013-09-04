@@ -10,6 +10,24 @@ class BannersController < ApplicationController
   def create
     @banner = Banner.new(params[:banner])
 
+    front = params["start_on"]
+    back = params["end_on"]
+
+    starts_on = DateTime.new(front["starting date(1i)"].to_i,
+                            front["starting date(2i)"].to_i,
+                            front["starting date(3i)"].to_i,
+                            front["starting date(4i)"].to_i,
+                            front["starting date(5i)"].to_i)
+
+    ends_on = DateTime.new(back["ending date(1i)"].to_i,
+                           back["ending date(2i)"].to_i,
+                           back["ending date(3i)"].to_i,
+                           back["ending date(4i)"].to_i,
+                           back["ending date(5i)"].to_i)
+
+    @banner.start_on = starts_on
+    @banner.end_on = ends_on
+
     if @banner.save
       redirect_to admin_dashboard_path, notice: "Successfully created banner."
     else

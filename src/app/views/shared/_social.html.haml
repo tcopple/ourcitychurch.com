@@ -8,7 +8,11 @@
       .feed
         .tweets
           .title= link_to 'twitter', 'http://www.twitter.com/fl_citychurch'
-          %ul#tweets
+          #tweets
+            .tweet
+              - tweet = Twitter.user_timeline("our_citychurch").first
+              .date.gray= tweet.created_at.strftime("%Y-%m-%d %I:%M %p")
+              %p= tweet.text
       .feed.last
         .calendar
           .title calendar

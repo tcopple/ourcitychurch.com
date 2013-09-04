@@ -4,12 +4,11 @@ var tweet = 1;
 
 $(document).ready(function() {
   $('.scripture').scriptureLink();
-  fetch_tweets(twitter_handle, tweets, tweet);
   fetch_blog();
 });
 
 function fetch_blog() {
-  $.jGFeed('http://feeds.feedburner.com/agenerationtransformed',
+  $.jGFeed('http://www.justinkendrick.org//feeds/posts/default',
     function(feeds){
       if(!feeds) {
         return false;

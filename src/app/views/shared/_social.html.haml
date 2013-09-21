@@ -12,7 +12,7 @@
             .tweet
               - tweet = Twitter.user_timeline("our_citychurch").first
               .date.gray= tweet.created_at.strftime("%Y-%m-%d %I:%M %p")
-              %p= tweet.text
+              %p= scrub tweet.text
       .feed.last
         .calendar
           .title calendar

@@ -2,11 +2,13 @@
 @import "mixins";
 
 html {
-  background: image-url("city-bg-one.jpg") no-repeat center center fixed;
+  background: image-url("city-bg-one.jpg");
   background-size: cover;
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 body {
@@ -14,7 +16,7 @@ body {
   color: $white;
   font-family: 'Shanti', sans-serif;
   text-align: left;
-}
+  }
 
 .clear { clear:both; }
 .right { float: right; }

@@ -20,7 +20,8 @@ tmp/**/*
 .DS_Store
 doc/*
 coverage/*
-db/*.sqlite3
+src/db/*.sqlite3
+src/db/backups/*
 *.tmproj
 *.sw?
 .sass-cache/

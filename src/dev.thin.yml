@@ -1,0 +1,17 @@
+---
+user: citychurch-s
+timeout: 30
+wait: 30
+max_conns: 1024
+require: []
+environment: development
+max_persistent_conns: 512
+servers: 3
+daemonize: true
+port: 4000
+pid: tmp/pids/prod.thin.pid
+log: log/prod.thin.log
+chdir: /home/apps/citychurch/application/src
+tag: citychurch-web
+onebyone: true
+address: 0.0.0.0

@@ -1,12 +1,12 @@
 #footer
   .grid_6
-    = link_to 'contact', page_path('contact')
+    = link_to 'contact', permalink_path(:contact)
     = " | "
-    = link_to 'give', page_path('give')
+    = link_to 'give', permalink_path(:give)
     = " | "
     = link_to 'home', '/'
     = " | "
-    = link_to 'service', page_path('weekly')
+    = link_to 'services', permalink_path('weekend-services')
     = " | "
     - unless user_signed_in?
       = link_to 'sign in', new_user_session_path

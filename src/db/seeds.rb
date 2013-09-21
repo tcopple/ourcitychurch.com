@@ -5,17 +5,17 @@ Admin.create(
   :email => 'madison@holyfireministries.com', :password => 'holyfire1!', :password_confirmation => 'holyfire1!'
 )
 
-CommunityGroupLeader.create(
-  :email => 'tyler@holyfireministries.com', :password => 'holyfire1!', :password_confirmation => 'holyfire1!'
-)
+#CommunityGroupLeader.create(
+#  :email => 'tyler@holyfireministries.com', :password => 'holyfire1!', :password_confirmation => 'holyfire1!'
+#)
 
-CommunityGroupLeader.create(
-  :email => 'john@holyfireministries.com', :password => 'holyfire1!', :password_confirmation => 'holyfire1!'
-)
+#CommunityGroupLeader.create(
+#  :email => 'john@holyfireministries.com', :password => 'holyfire1!', :password_confirmation => 'holyfire1!'
+#)
 
-CommunityGroupLeader.create(
-  :email => 'ed@holyfireministries.com', :password => 'holyfire1!', :password_confirmation => 'holyfire1!'
-)
+#CommunityGroupLeader.create(
+#  :email => 'ed@holyfireministries.com', :password => 'holyfire1!', :password_confirmation => 'holyfire1!'
+#)
 
 Page.create(
   menu_title: 'New Here?',

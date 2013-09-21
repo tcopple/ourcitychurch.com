@@ -7,7 +7,7 @@ module ApplicationHelper
 
   def build_menu_hash
     Hash.new.tap do |menu|
-      Page.where(parent: nil, visible: true).each do |p|
+      Page.where(visible: true).any_of({parent: ""}, {parent: nil}).each do |p|
         menu[p] ||= Array.new
         menu[p].concat(Page.where(parent: p.title, visible: true))
       end
@@ -36,5 +36,11 @@ module ApplicationHelper
 
   def home?
     show_promos? && params[:permalink] == 'home'
+  end
+
+  def scrub string
+    require 'iconv'
+    ic = ::Iconv.new('UTF-8//IGNORE', 'UTF-8')
+    ic.iconv(string + ' ')[0..-2]
   end
 end

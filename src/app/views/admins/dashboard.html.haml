@@ -46,27 +46,27 @@
             %th Order
             %th
             %th
-          - @roots.each do |r|
+          - @pages.sort_by{|k, v| k.order }.each do |root, children|
             %tr
-              %td= link_to r.title, r
-              %td= r.permalink
-              %td= r.visible
-              %td= r.order
-              %td= link_to "Edit", edit_page_path(r)
-            - @tree[r.title].each do |c|
-              %tr{ class: 'sub-page', id: c.permalink }
+              %td= link_to root.title, root
+              %td= root.permalink
+              %td= root.visible
+              %td= root.hiearchical_order
+              %td= link_to "Edit", edit_page_path(root)
+            - children.each do |child|
+              %tr{ class: 'sub-page', id: child.permalink }
                 %td.bump
-                  = link_to c.title, c
-                  - if(c.title != @tree[r.title].first.title)
+                  = link_to child.title, child
+                  - if(child.title != children.first.title)
                     %i.icon-circle-arrow-up.icon-white
-                  - if(c.title != @tree[r.title][-1].title)
+                  - if(child.title != children.last.title)
                     %i.icon-circle-arrow-down.icon-white
-                %td= c.permalink
-                %td= c.visible
-                %td= c.order
+                %td= child.permalink
+                %td= child.visible
+                %td= child.hiearchical_order
                 %td
-                  - if c.editable?
-                    = link_to "Edit", edit_page_path(c) if c.editable?
+                  - if child.editable?
+                    = link_to "Edit", edit_page_path(child) if child.editable?
 
         = add_new_button(new_page_path, "New Page")
 

@@ -47,14 +47,13 @@ class PagesController < ApplicationController
     @left.update_attributes(order: n)
     @right.update_attributes(order: m)
 
-    # respond_with({up: @left, down: @right})
+    #TODO this shouldn't return html as it's only ever accessed via js
     redirect_to admin_dashboard_path
   end
 
   def community_groups
     @community_groups = CommunityGroup.all
     @json = @community_groups.select {|a| a.mappable? }.to_gmaps4rails do |cg, marker|
-      # marker.infowindow render_to_string partial: "/pages/community_group", locals: { group: cg }
       "\"id\": \"#{cg.id}\""
     end
 

@@ -26,6 +26,7 @@ class Page
 
   key :permalink
 
+  #god this has to be fixed, it's referenced as a fk in so many places but you can't write to it
   def title
     (page_title.nil? || page_title.empty? ? menu_title : page_title).titleize
   end
@@ -59,5 +60,10 @@ class Page
 
   def editable?
     editable
+  end
+
+  def hiearchical_order
+    parent_order = (self.parent.nil? || self.parent.empty?) ? "" : "#{Page.where(menu_title: self.parent).first.order}."
+    return (self.order.nil? ? "" : parent_order << self.order.to_s)
   end
 end

@@ -53,9 +53,10 @@ class Page
   end
 
   def self.parent_menu_items
-    Page.where(:parent => nil, :visible => true, :link => nil)
+      Page.where(visible: true, :link.in => ["", nil]).any_of({parent: ""}, {parent: nil})
         .collect{|p| [p.menu_title, p.menu_title]}
         .unshift(["None", nil])
+    # Page.where(visible: true, :link => nil).any_of({parent: ""}, {parent: nil})
   end
 
   def editable?

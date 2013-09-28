@@ -53,11 +53,22 @@ class Page
     Page.where(visible: true, :link.in => ["", nil]).any_of({parent: ""}, {parent: nil})
         .collect{|p| [p.menu_title, p.menu_title]}
         .unshift(["None", nil])
-    # Page.where(visible: true, :link => nil).any_of({parent: ""}, {parent: nil})
   end
 
   def editable?
     editable
+  end
+
+  def parent?
+    !parent.nil? && !parent.empty?
+  end
+
+  def root?
+    parent.nil? || parent.empty?
+  end
+
+  def siblings
+    Page.all.select {|p| p.parent == self.parent}
   end
 
   def hiearchical_order

@@ -7,9 +7,9 @@ module ApplicationHelper
 
   def build_menu_hash
     Hash.new.tap do |menu|
-      Page.where(visible: true).any_of({parent: ""}, {parent: nil}).each do |p|
+      Page.where(visible: true).any_of({parent: ""}, {parent: nil}).order_by([:order, :asc]).each do |p|
         menu[p] ||= Array.new
-        menu[p].concat(Page.where(parent: p.title, visible: true))
+        menu[p].concat(Page.where(parent: p.title, visible: true).order_by([:order, :asc]))
       end
     end
   end

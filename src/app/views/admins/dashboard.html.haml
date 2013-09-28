@@ -46,7 +46,7 @@
             %th Order
             %th
             %th
-          - @pages.sort_by{|k, v| k.order }.each do |root, children|
+          - @pages.each do |root, children|
             %tr
               %td= link_to root.title, root
               %td= root.permalink

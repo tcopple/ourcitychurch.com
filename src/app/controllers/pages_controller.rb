@@ -33,6 +33,8 @@ class PagesController < ApplicationController
 
   def create
     @page = Page.new(params[:page])
+    @page.order = @page.siblings.collect{|p| p.order || 0}.max + 1
+
     flash[:notice] = 'Page successfully created.' if @page.save
     respond_with @page
   end

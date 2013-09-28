@@ -3,15 +3,12 @@ class Page
   include Mongoid::Timestamps
 
   field :menu_title, type: String
-  validates :menu_title, presence: true,
-                    length: { allow_blank: false, minimum: 4 }
+  validates :menu_title, presence: true, length: { allow_blank: false, minimum: 4 }
 
   field :page_title, type: String
 
   field :permalink, type: String
-  validates :permalink, presence: true,
-                        uniqueness: { case_sensitive: false },
-                        length: { allow_blank: false, minimum: 4 }
+  validates :permalink, presence: true, uniqueness: { case_sensitive: false }, length: { allow_blank: false, minimum: 4 }
 
   field :link, type: String, :default => nil
   field :parent, type: String
@@ -53,7 +50,7 @@ class Page
   end
 
   def self.parent_menu_items
-      Page.where(visible: true, :link.in => ["", nil]).any_of({parent: ""}, {parent: nil})
+    Page.where(visible: true, :link.in => ["", nil]).any_of({parent: ""}, {parent: nil})
         .collect{|p| [p.menu_title, p.menu_title]}
         .unshift(["None", nil])
     # Page.where(visible: true, :link => nil).any_of({parent: ""}, {parent: nil})

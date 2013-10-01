@@ -3,9 +3,9 @@
   %head
     %title ::city church - new haven::
     = stylesheet_link_tag    "application"
-    -# = stylesheet_link_tag    *load_stylesheets
     <link href="http://fonts.googleapis.com/css?family=Shanti&amp;v2" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="http://www.google.com/jsapi" /></script>
+    = analytics_init if Rails.env.production?
     = favicon_link_tag 'favicon.ico'
     = javascript_include_tag *load_javascripts
     = csrf_meta_tags

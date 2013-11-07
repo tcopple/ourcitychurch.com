@@ -27,6 +27,7 @@ class BannersController < ApplicationController
 
     @banner.start_on = starts_on
     @banner.end_on = ends_on
+    @banner.order = Banner.next_iter
 
     if @banner.save
       redirect_to admin_dashboard_path, notice: "Successfully created banner."
@@ -45,4 +46,20 @@ class BannersController < ApplicationController
       redirect_to admin_dashboard_path, notice: "Could not remove banner." << @banner.errors.join('\n')
     end
   end
+
+  def swap_order
+    @left = Banner.find(params[:id])
+    @right = Banner.find(params[:other])
+
+    m = @left.order
+    n = @right.order
+
+    @left.update_attributes(order: n)
+    @right.update_attributes(order: m)
+
+    #TODO this shouldn't return html as it's only ever accessed via js
+    redirect_to admin_dashboard_path
+  end
+
+
 end

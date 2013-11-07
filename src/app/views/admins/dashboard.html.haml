@@ -26,10 +26,18 @@
           %table
             %thead
               %th Name
+              %th Order
               %th Created
-            - @banners.each do |b|
-              %tr
-                %td= b.filename
+            - @banners.sort.each do |b|
+              %tr{ class: 'banner', id: b.id }
+                %td
+                  = b.filename
+                  - if(b.filename != @banners.sort.first.filename)
+                    %i.icon-circle-arrow-up.icon-white
+                  - if(b.filename != @banners.sort.last.filename)
+                    %i.icon-circle-arrow-down.icon-white
+
+                %td= b.order
                 %td= b.created_at.getlocal.strftime('%Y.%m.%d')
                 %td= link_to "Show", b.file.url
                 %td= link_to 'Destroy', b, confirm: 'Are you sure?', method: :delete

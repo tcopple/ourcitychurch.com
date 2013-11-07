@@ -11,6 +11,7 @@ Citychurch::Application.routes.draw do
   resources :resources
   resources :images
   resources :banners, :only => [:new, :create, :destroy]
+  get 'banners/:id/swap/:other' => 'banners#swap_order', :as => :swap_banners
   resources :community_groups
   resources :community_group_leaders
 

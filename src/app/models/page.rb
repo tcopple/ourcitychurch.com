@@ -1,6 +1,7 @@
 class Page
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Orderable
 
   field :menu_title, type: String
   validates :menu_title, presence: true, length: { allow_blank: false, minimum: 4 }
@@ -13,7 +14,6 @@ class Page
   field :link, type: String, :default => nil
   field :parent, type: String
   field :visible, type: Boolean
-  field :order, type: Integer
 
   field :markup, type: Boolean, :default => true
   field :markup_content, type: String
@@ -30,13 +30,6 @@ class Page
 
   def source
     (self.markup ? self.markup_content : self.html_content) || ""
-  end
-
-  def <=>(other)
-    return 0 if !order && !other.order
-    return 1 if !order
-    return -1 if !other.order
-    order <=> other.order
   end
 
   def source= content
